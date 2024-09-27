@@ -68,9 +68,12 @@ class MasterDataController extends Controller
         $data['price'] = str_replace('.', '', $data['price']); // Hilangkan titik dari harga
         $data['user_id'] = Auth::id(); // Tambahkan user_id
 
+
         // Simpan gambar jika ada
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('products', 'public');
+            $filename = time() . '.' . $request->image->extension();
+            $request->file('image')->store('products', 'public');
+            $data['image'] = $filename;
         }
 
         // Simpan data produk
