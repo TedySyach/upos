@@ -92,7 +92,8 @@
                                                 <!-- Menampilkan harga dengan format 12.000 -->
                                                 <td>{{ $product->stock }}</td>
                                                 <td>
-                                                    <img alt="image" src="{{ asset('storage/' . $product->image) }}"
+                                                    <img alt="image"
+                                                        src="{{ asset('storage/products/' . $product->image) }}"
                                                         class="rounded-circle" width="35">
                                                 </td>
                                             </tr>
