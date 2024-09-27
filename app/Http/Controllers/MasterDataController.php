@@ -71,9 +71,9 @@ class MasterDataController extends Controller
 
         // Simpan gambar jika ada
         if ($request->hasFile('image')) {
-            $filename = time() . '.' . $request->image->extension();
-            $request->file('image')->store('products', 'public');
-            $data['image'] = $filename;
+            // Simpan gambar di folder 'products' di dalam 'public'
+            $path = $request->file('image')->store('products', 'public');
+            $data['image'] = $path; // Simpan path gambar lengkap ke database
         }
 
         // Simpan data produk
